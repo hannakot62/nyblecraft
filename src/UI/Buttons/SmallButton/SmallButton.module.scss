@@ -1,0 +1,23 @@
+@import "../../../index";
+
+@mixin button-base{
+  font-family: Arial;
+  background-color: $primary-purple;
+  border: 2px solid $dark-purple;
+  font-weight: bold;
+  color: $dark-purple;
+  border-radius: 15px;
+
+}
+.button{
+  @include button-base;
+  font-size: 1em;
+  padding: 5px 15px;
+&:hover{
+  background-color: $primary-purple-hover;
+  cursor: pointer;
+  transition: 0.3s ease;
+
+}
+
+}

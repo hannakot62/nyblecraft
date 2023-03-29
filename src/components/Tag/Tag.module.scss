@@ -1,0 +1,21 @@
+@import "../../index";
+
+@mixin hover{
+  text-decoration: underline;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+
+.true{
+  color: $primary-purple;
+  &:hover{
+    @include hover
+  }
+}
+.false{
+  color: $dark-purple;
+  &:hover{
+    @include hover
+  }
+}
