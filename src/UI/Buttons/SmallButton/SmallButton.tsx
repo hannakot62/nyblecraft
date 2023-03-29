@@ -1,16 +1,16 @@
 import React from 'react'
 import style from './SmallButton.module.scss'
 
-interface IButton {
+export interface IButton {
     text?: string
     icon?: any
     //TODO убрать ?
-    onClick?: () => void
+    onClick?: any
 }
 
 const SmallButton: React.FC<IButton> = (props: IButton) => {
     return (
-        <button className={style.button} onClick={() => props.onClick}>
+        <button className={style.button} onClick={() => props.onClick()}>
             {props.text} {props.icon}
         </button>
     )

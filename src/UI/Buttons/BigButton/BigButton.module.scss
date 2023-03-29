@@ -1,0 +1,21 @@
+@import "../../../index";
+@import "../SmallButton/SmallButton.module";
+
+.button{
+  @include button-base;
+  padding: 20px;
+  background-color: $orange;
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  border-radius: 50%;
+  &:hover{
+    background-color: $orange-hover;
+    cursor: pointer;
+    transition: 0.3s ease;
+
+  }
+  -webkit-box-shadow: 0px 0px 21px 7px rgba(33, 18, 43, 0.2);
+  -moz-box-shadow: 0px 0px 21px 7px rgba(33, 18, 43, 0.2);
+  box-shadow: 0px 0px 21px 7px rgba(33, 18, 43, 0.2);
+}

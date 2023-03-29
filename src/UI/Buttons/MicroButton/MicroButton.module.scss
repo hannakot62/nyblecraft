@@ -1,0 +1,15 @@
+@import "../../../index";
+@import "../SmallButton/SmallButton.module";
+
+
+.button{
+  @include button-base;
+  //border-radius: 50%;
+  background-color: $gray;
+  padding: 0px 3px;
+  font-size: 0.8em;
+  text-align: center;
+  //line-height: 100%;
+  border: none;
+  margin-left: 1px;
+}

@@ -1,0 +1,60 @@
+@import "../../index";
+
+
+.container{
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  min-height: 500px;
+  max-width: 330px;
+  border: 2px solid $dark-purple;
+  border-radius: 20px;
+  margin-top: 30px;
+
+  .buttons{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  h2{
+    font-size: 2em;
+    color: $primary-purple;
+  }
+
+  label{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-left: 10px ;
+    font-weight: bold;
+
+
+  input, textarea{
+    width: 70%;
+    margin: 10px;
+    border: 2px solid $dark-purple;
+    border-radius: 20px;
+    resize: none;
+  }
+
+    textarea{
+      min-height: 70px;;
+    }
+  }
+
+
+  .tags{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+.addTags{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+}
+}
