@@ -32,15 +32,23 @@ const Modal: React.FC<IModal> = (props: IModal) => {
                     Add tags:
                     <span className={style.addTags}>
                         <input />
-                        <MicroButton text={'+'} />
+                        <MicroButton text={'+'} onClick={() => {}} />
                     </span>
                 </label>
                 <div className={style.tags}>
                     <TagsList tags={tags} />
                 </div>
                 <div className={style.buttons}>
-                    <SmallButton text={'cancel'} />
-                    <SmallButton text={'save'} />
+                    <SmallButton
+                        text={'cancel'}
+                        onClick={() => props.setActive(false)}
+                    />
+                    <SmallButton
+                        text={'save'}
+                        onClick={() => {
+                            props.setActive(false)
+                        }}
+                    />
                 </div>
             </div>
         </div>

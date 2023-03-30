@@ -9,6 +9,7 @@
   bottom: 5%;
   right: 5%;
   border-radius: 50%;
+  *{color: $dark-purple;}
   &:hover{
     background-color: $orange-hover;
     cursor: pointer;

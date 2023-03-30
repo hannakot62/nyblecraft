@@ -25,8 +25,12 @@ const Note: React.FC<INote> = (props: INote) => {
             <div className={style.header}>
                 <h4>Added {formatDistanceToNow(props.created)} ago</h4>
                 <div className={style.buttons}>
-                    <SmallButton icon={<Delete />} />
-                    <SmallButton icon={<Edit />} />
+                    <SmallButton icon={<Delete />} onClick={() => {}} />
+                    <SmallButton
+                        icon={<Edit />}
+                        linkPath={'/edit'}
+                        onClick={() => {}}
+                    />
                 </div>
             </div>
             <h2>{props.contents}</h2>

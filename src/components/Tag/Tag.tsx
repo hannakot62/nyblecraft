@@ -19,7 +19,7 @@ const Tag: React.FC<ITag> = (props: ITag) => {
             >
                 #{props.title}
             </h5>
-            <MicroButton text={'×'} />
+            <MicroButton text={'×'} onClick={() => {}} />
         </div>
     )
 }

@@ -12,6 +12,8 @@ const AddEdit: React.FC<IAddEdit> = (props: IAddEdit) => {
     //TODO добавить начальные значения при редактировании
     const [contents, setContents] = useState('')
     const [tags, setTags] = useState([{ title: 'ppp', active: false }])
+    function handleSave() {}
+    function handleCancel() {}
     return (
         <div className={style.container}>
             <h2>{props.type} note</h2>
@@ -23,15 +25,23 @@ const AddEdit: React.FC<IAddEdit> = (props: IAddEdit) => {
                 Add tags:
                 <span className={style.addTags}>
                     <input />
-                    <MicroButton text={'+'} />
+                    <MicroButton text={'+'} onClick={() => {}} />
                 </span>
             </label>
             <div className={style.tags}>
                 <TagsList tags={tags} />
             </div>
             <div className={style.buttons}>
-                <SmallButton text={'cancel'} />
-                <SmallButton text={props.type} />
+                <SmallButton
+                    text={'cancel'}
+                    linkPath={'/main'}
+                    onClick={handleCancel}
+                />
+                <SmallButton
+                    text={props.type}
+                    linkPath={'/main'}
+                    onClick={handleSave}
+                />
             </div>
         </div>
     )

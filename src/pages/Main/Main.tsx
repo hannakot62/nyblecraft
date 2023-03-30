@@ -47,7 +47,7 @@ const Main: React.FC = () => {
             <h1>Your notes</h1>
             search
             <NotesList notes={notesToShow} />
-            <BigButton icon={<Add />} />
+            <BigButton icon={<Add />} linkPath={'/add'} onClick={() => {}} />
         </div>
     )
 }

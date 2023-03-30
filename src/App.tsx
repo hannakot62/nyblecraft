@@ -1,14 +1,14 @@
 import React from 'react'
 import './App.scss'
-
-import Main from './pages/Main/Main'
-import AddEdit from './pages/AddEdit/AddEdit'
+import { BrowserRouter } from 'react-router-dom'
+import AppRouter from './routes/AppRouter'
 
 function App() {
     return (
         <div className="App">
-            {/*<AddEdit type={'add'} />*/}
-            <Main />
+            <BrowserRouter>
+                <AppRouter />
+            </BrowserRouter>
         </div>
     )
 }

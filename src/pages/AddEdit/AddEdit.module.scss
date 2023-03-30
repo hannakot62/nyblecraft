@@ -17,6 +17,10 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    *{
+      text-decoration: none;
+      color: $dark-purple;
+    }
   }
 
   h2{
