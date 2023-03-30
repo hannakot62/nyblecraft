@@ -3,7 +3,7 @@ import NotesList from '../../components/NotesList/NotesList'
 import style from './Main.module.scss'
 import Add from '../../UI/Icons/Add'
 import BigButton from '../../UI/Buttons/BigButton/BigButton'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { INote } from '../../components/Note/Note'
 import { ITag } from '../../components/Tag/Tag'
 
