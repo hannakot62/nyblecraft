@@ -8,7 +8,6 @@ import { INote } from '../../components/Note/Note'
 import { ITag } from '../../components/Tag/Tag'
 
 const Main: React.FC = () => {
-    const dispatch = useDispatch()
     const allNotes = useSelector((state: any) => state.allNotes.allNotes)
     const [notesToShow, setNotesToShow] = useState(allNotes)
     const activeTagTitle = useSelector(
