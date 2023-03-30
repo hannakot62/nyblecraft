@@ -5,7 +5,10 @@ import { Link } from 'react-router-dom'
 
 const MicroButton: React.FC<IButton> = (props: IButton) => {
     return (
-        <button className={style.button} onClick={() => props.onClick()}>
+        <button
+            className={style.button}
+            onClick={() => (props.onClick ? props.onClick() : {})}
+        >
             {props.linkPath ? (
                 <Link to={props.linkPath}>
                     {props.text} {props.icon}

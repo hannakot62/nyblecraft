@@ -23,7 +23,6 @@ const AddEdit: React.FC<IAddEdit> = (props: IAddEdit) => {
     const activeCreated = useSelector(
         (state: any) => state.activeNote.activeNote.created
     )
-    // console.log(activeCreated, activeContents, activeTags)
     const [contents, setContents] = useState(activeContents)
     const deferredContents = useDeferredValue(contents)
     const [pureTags, setPureTags] = useState(activeTags)

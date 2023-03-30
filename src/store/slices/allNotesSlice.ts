@@ -54,7 +54,6 @@ const allNotesSlice = createSlice({
             )
             state.allNotes[index].contents = action.payload.contentsAfter
             state.allNotes[index].tags = action.payload.tagsAfter
-
             setNotesToLS(state.allNotes)
         }
     }
