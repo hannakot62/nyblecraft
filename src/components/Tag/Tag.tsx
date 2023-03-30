@@ -2,7 +2,10 @@ import React, { useEffect, useState } from 'react'
 import style from './Tag.module.scss'
 import MicroButton from '../../UI/Buttons/MicroButton/MicroButton'
 import { useDispatch, useSelector } from 'react-redux'
-import { setActiveNote } from '../../store/slices/activeNoteSlice'
+import {
+    removeActiveNote,
+    setActiveNote
+} from '../../store/slices/activeNoteSlice'
 import { editNote } from '../../store/slices/allNotesSlice'
 import {
     removeActiveTag,
@@ -57,6 +60,7 @@ const Tag: React.FC<ITag> = (props: ITag) => {
                 tagsAfter: tagsAfter
             })
         )
+        dispatch(removeActiveNote())
     }
 
     function handleActive() {

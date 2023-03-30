@@ -7,6 +7,7 @@ import { ITag } from '../components/Tag/Tag'
 import { useDispatch, useSelector } from 'react-redux'
 import { checkForTags } from '../pages/AddEdit/checkForTags'
 import { editNote } from '../store/slices/allNotesSlice'
+import { removeActiveNote } from '../store/slices/activeNoteSlice'
 
 interface IModal {
     active: boolean
@@ -43,6 +44,11 @@ const Modal: React.FC<IModal> = (props: IModal) => {
                 tagsAfter: tags
             })
         )
+        dispatch(removeActiveNote())
+    }
+    function outsideClick() {
+        props.setActive(false)
+        dispatch(removeActiveNote())
     }
     return (
         <div
@@ -51,7 +57,7 @@ const Modal: React.FC<IModal> = (props: IModal) => {
                     ? style.modal.concat(' ') + style.active
                     : style.modal
             }
-            onClick={() => props.setActive(false)}
+            onClick={() => outsideClick()}
         >
             <div
                 className={style.modalContent}
@@ -77,7 +83,7 @@ const Modal: React.FC<IModal> = (props: IModal) => {
                 <div className={style.buttons}>
                     <SmallButton
                         text={'cancel'}
-                        onClick={() => props.setActive(false)}
+                        onClick={() => outsideClick()}
                     />
                     <SmallButton
                         text={'save'}
