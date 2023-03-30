@@ -12,7 +12,7 @@ const NotesList: React.FC<INotesList> = (props: INotesList) => {
     const notesToRender = notes.map(note => (
         <Note
             key={note.created.valueOf() + note.contents}
-            created={note.created}
+            created={new Date(note.created)}
             contents={note.contents}
             tags={note.tags}
         />

@@ -9,7 +9,11 @@ interface ITagsList {
 const TagsList: React.FC<ITagsList> = (props: ITagsList) => {
     const tags = props.tags
     const tagsToRender = tags.map(tag => (
-        <Tag key={tag.title} title={tag.title} active={tag.active}></Tag>
+        <Tag
+            key={tag.title + Date.now()}
+            title={tag.title}
+            active={tag.active}
+        ></Tag>
     ))
     return <div className={style.list}>{tagsToRender}</div>
 }
