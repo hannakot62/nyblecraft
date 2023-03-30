@@ -23,6 +23,13 @@ const Note: React.FC<INote> = (props: INote) => {
     const dispatch = useDispatch()
     function handleAddTag() {
         setModalActive(true)
+        dispatch(
+            setActiveNote({
+                created: props.created.valueOf(),
+                contents: props.contents,
+                tags: props.tags
+            })
+        )
     }
     function handleDelete() {
         dispatch(
@@ -67,8 +74,12 @@ const Note: React.FC<INote> = (props: INote) => {
             <h2>{props.contents}</h2>
             {props.tags.length ? (
                 <div className={style.tags}>
-                    <TagsList tags={props.tags} />
-                    {/*<SmallButton icon={<Add />} onClick={handleAddTag} />*/}
+                    <TagsList
+                        tags={props.tags}
+                        noteCreated={props.created}
+                        noteContents={props.contents}
+                        inNote={true}
+                    />
                 </div>
             ) : (
                 <></>

@@ -6,7 +6,7 @@ import TagsList from '../../components/TagsList/TagsList'
 import { useDispatch, useSelector } from 'react-redux'
 import { addNote, editNote } from '../../store/slices/allNotesSlice'
 import { checkForTags } from './checkForTags'
-import tag, { ITag } from '../../components/Tag/Tag'
+import { ITag } from '../../components/Tag/Tag'
 import { removeActiveNote } from '../../store/slices/activeNoteSlice'
 
 interface IAddEdit {
@@ -23,7 +23,7 @@ const AddEdit: React.FC<IAddEdit> = (props: IAddEdit) => {
     const activeCreated = useSelector(
         (state: any) => state.activeNote.activeNote.created
     )
-
+    // console.log(activeCreated, activeContents, activeTags)
     const [contents, setContents] = useState(activeContents)
     const deferredContents = useDeferredValue(contents)
     const [pureTags, setPureTags] = useState(activeTags)
@@ -62,6 +62,7 @@ const AddEdit: React.FC<IAddEdit> = (props: IAddEdit) => {
                       tagsAfter: tags
                   })
               )
+        dispatch(removeActiveNote())
     }
 
     function handleCancel() {
@@ -99,7 +100,12 @@ const AddEdit: React.FC<IAddEdit> = (props: IAddEdit) => {
                 </span>
             </label>
             <div className={style.tags}>
-                <TagsList tags={tags} />
+                <TagsList
+                    tags={tags}
+                    noteCreated={activeCreated}
+                    noteContents={activeContents}
+                    inNote={false}
+                />
             </div>
             <div className={style.buttons}>
                 <SmallButton

@@ -4,6 +4,9 @@ import MicroButton from '../UI/Buttons/MicroButton/MicroButton'
 import TagsList from '../components/TagsList/TagsList'
 import SmallButton from '../UI/Buttons/SmallButton/SmallButton'
 import { ITag } from '../components/Tag/Tag'
+import { useDispatch, useSelector } from 'react-redux'
+import { checkForTags } from '../pages/AddEdit/checkForTags'
+import { editNote } from '../store/slices/allNotesSlice'
 
 interface IModal {
     active: boolean
@@ -12,7 +15,35 @@ interface IModal {
 }
 
 const Modal: React.FC<IModal> = (props: IModal) => {
+    const activeContents = useSelector(
+        (state: any) => state.activeNote.activeNote.contents
+    )
+    const activeTags = new Array<ITag>().concat(
+        useSelector((state: any) => state.activeNote.activeNote.tags)
+    )
+    const activeCreated = useSelector(
+        (state: any) => state.activeNote.activeNote.created
+    )
     const [tags, setTags] = useState(props.tags)
+    const [input, setInput] = useState('')
+    const dispatch = useDispatch()
+
+    function addPureTag() {
+        setInput('')
+        const tagArr = checkForTags('#' + input)
+        setTags(tags.concat(tagArr))
+    }
+    function handleSave() {
+        dispatch(
+            editNote({
+                created: activeCreated,
+                contentsBefore: activeContents,
+                tagsBefore: activeTags,
+                contentsAfter: activeContents,
+                tagsAfter: tags
+            })
+        )
+    }
     return (
         <div
             className={
@@ -31,8 +62,13 @@ const Modal: React.FC<IModal> = (props: IModal) => {
                 <label>
                     Add tags:
                     <span className={style.addTags}>
-                        <input />
-                        <MicroButton text={'+'} onClick={() => {}} />
+                        <input
+                            value={input}
+                            onChange={(
+                                e: React.ChangeEvent<HTMLInputElement>
+                            ) => setInput(e.target.value)}
+                        />
+                        <MicroButton text={'+'} onClick={() => addPureTag()} />
                     </span>
                 </label>
                 <div className={style.tags}>
@@ -47,6 +83,7 @@ const Modal: React.FC<IModal> = (props: IModal) => {
                         text={'save'}
                         onClick={() => {
                             props.setActive(false)
+                            handleSave()
                         }}
                     />
                 </div>
